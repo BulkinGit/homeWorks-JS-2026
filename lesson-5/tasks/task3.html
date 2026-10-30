@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="block">
+    <h2>Задача 3</h2>
+    <p>
+      Поступово генерувати 100 випадкових чисел від 1 до 1000. <br>
+      Підрахувати яких чисел більше: парних чи непарних.
+    </p>
+    <script>
+      if (confirm('Почати тестування?')) {
+        // 1 вводимо дані    
+        let evenNum = 0
+        let oddNum = 0
+        let resultNum = ''
+
+        // 2 будуємо обчислення    
+        document.write(`<ol>`)
+        for (let num = 0; num < 100; num++) {
+          let randomNum = 1 + Math.floor(Math.random() * 1000)
+          document.write(` <li> ${randomNum} </li>`)
+          if (randomNum % 2 === 0) evenNum++
+          else oddNum++
+        }
+        document.write(`</ol>`)
+        if (evenNum > oddNum) resultNum = `парних чисел в даному циклі більше`
+        else resultNum = `непарних чисел в даному циклі більше`
+
+        // 3 Виводимо результат  
+        document.write(`парних чисел: ${evenNum} <br> непарних чисел: ${oddNum} <br> ${resultNum} `)
+      }
+    </script>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="block">
+    <h2>Задача 3</h2>
+    <p>
+      Вивести таблицю з одним рядком і 7 стовпцями.
+    </p>
+    <script>
+      if (confirm('Почати тестування?')) {
+
+        // 2 будуємо обчислення    
+        document.write(`<table style="border: 2px solid black;"><tr>`)
+        // document.write(``)
+        for (let num = 0; num < 7; num++) {
+          let randomNum = 1 + Math.floor(Math.random() * 10)
+          document.write(` <td style="border: 2px solid black;"> ${randomNum} </td>`)
+        }
+        // document.write(``)
+        document.write(`</tr></table>`)
+
+        // 3 Виводимо результат   
+      }
+    </script>
+  </div>
+</body>
+
+</html>
