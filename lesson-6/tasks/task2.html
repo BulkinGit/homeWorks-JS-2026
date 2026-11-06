@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="block">
+    <h2>Задача 2</h2>
+    <p>
+      Вивести на екран <br>
+      1 1 <br>
+      2 1234 <br>
+      3 123456789 <br>
+      4 1234…16 <br>
+      5 1 … 25 <br>
+      6 1…36 <br>
+      -------------------------- <br>
+    </p>
+    <script>
+      if (confirm('Почати тестування?')) {
+        let num = 1
+        // 1 вводимо дані  
+        for (let numRow = 1; numRow <= 6; numRow++) {
+          let sumNum = numRow * numRow
+          for (let numCol = 1; numCol <= sumNum; numCol++) {
+
+            document.write(`${numCol} `)
+          }
+          document.write(`<br>`)
+        }
+
+        // 3 Виводимо результат   
+      }
+    </script>
+  </div>
+</body>
+
+</html>

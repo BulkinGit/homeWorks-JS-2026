@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="block">
+    <h2>Задача 1</h2>
+    <p>
+      A B C D E <br>
+      B C D E F <br>
+      C D E F G <br>
+      D E F G H <br>
+      E F G H I <br>
+      Вивести на екран <br>
+      -------------------------- <br>
+    </p>
+    <script>
+      if (confirm('Почати тестування?')) {
+        let symbol = 65
+        // 1 вводимо дані  
+        for (let symbolRow = 0; symbolRow < 5; symbolRow++) {
+          for (let symbolCol = 0; symbolCol < 5; symbolCol++) {
+            let nextSymbol = symbolRow + symbolCol
+            document.write(String.fromCharCode(symbol + nextSymbol) + " ")
+          }
+          document.write(`<br>`)
+        }
+
+        // 3 Виводимо результат   
+      }
+    </script>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="block">
+    <h2>Задача 0</h2>
+    <p>
+      Вивести на екран послідовність символів <br>
+      а о а о а о а о а о … <br>
+      Всього символів 82.
+    </p>
+    <script>
+      if (confirm('Почати тестування?')) {
+        let symbol = ''
+        // 1 вводимо дані  
+        for (let i = 0; i < 82; i++) {
+          // document.write(`${sym}`)
+          symbol += (i % 2 === 0) ? 'a ' : 'o '
+        }
+        // 3 Виводимо результат  
+        document.write(`${symbol}`)
+      }
+    </script>
+  </div>
+</body>
+
+</html>

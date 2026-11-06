@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="block">
+    <h2>Задача 3</h2>
+    <p>
+      Інвестор вклав S тис. грн на 20 років під 20% річних. <br>
+      Визначити за допомогою циклів суму, яку він одержить (без
+      оподаткування).
+      <!-- profit = money * (i + percent) -->
+      -------------------------- <br>
+    </p>
+    <script>
+      if (confirm('Почати тестування?')) {
+        let money = parseFloat(prompt("Яку сумму коштів інвестуєте під 20% річних на 20 років", 10000))
+        let percent = money * 0.20
+        let profit = 0
+        // 1 вводимо дані  
+        for (let i = 0; i < 20; i++) {
+          profit += percent
+        }
+
+        // 3 Виводимо результат   
+
+        document.write(`
+        Сума вкладена інвестором на 20 років під 20%: ${money} <br>
+        відсоток від вкладеної суми: ${percent} <br>
+        загальний прибудток від вкладеної суми: ${profit}
+        `)
+      }
+    </script>
+  </div>
+</body>
+
+</html>
