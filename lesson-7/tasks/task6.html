@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="block">
+    <h2>Задача 6</h2>
+    <p>
+      Створити функцію, яка створює таблицю з вказаною кількістю рядків і стовпців (таблиця заповнюється заданим
+      фіксованим повідомленням).
+    </p>
+    <script>
+      if (confirm('Почати тестування?')) {
+
+        // 1 вводимо дані   
+        function getTable(number) {
+          for (let table = 1; table <= number; table++) {
+            document.write(`<h2>${table}</h2>`)
+            // table start
+            document.write(`<table style="border: 1px solid black;">
+              <tbody>`)
+            for (let rowNum = 0; rowNum < 4; rowNum++) {
+              document.write(`<tr>`)
+
+              for (let colNum = 0; colNum < 4; colNum++) {
+                let randNum = 1 + Math.floor(Math.random() * (50))
+                document.write(`<td style="border: 1px solid black;">${randNum}</td>`)
+              }
+
+              document.write(`</tr>`)
+            }
+            // table end
+            document.write(`</tbody>
+            </table>`)
+          }
+        }
+        let tablePage = parseInt(prompt('Введіть кількість таблиць на сторінці', 1))
+
+        // 3 Виводимо результат   
+        getTable(tablePage)
+
+      }
+    </script>
+  </div>
+</body>
+
+</html>

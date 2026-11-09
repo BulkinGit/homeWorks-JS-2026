@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="block">
+    <h2>Задача 4</h2>
+    <p>
+      Створити функцію, яка для 3 заданих чисел знаходить одночасно декілька результатів: <br>
+      кількість парних, <br>
+      кількість додатних, <br>
+      кількість більших за 100.
+    </p>
+    <script>
+      if (confirm('Почати тестування?')) {
+
+        function getResultNum(num1, num2, num3) {
+          let evenNum = 0
+          let positiveNum = 0
+          let moreNum = 0
+
+
+          if (num1 % 2 === 0) evenNum++
+          if (num2 % 2 === 0) evenNum++
+          if (num3 % 2 === 0) evenNum++
+
+          if (num1 > 0) positiveNum++
+          if (num2 > 0) positiveNum++
+          if (num3 > 0) positiveNum++
+
+          if (num1 > 100) moreNum++
+          if (num2 > 100) moreNum++
+          if (num3 > 100) moreNum++
+
+          return `
+          парних чисел: ${evenNum}<br>
+          додатніх чисел: ${positiveNum}<br>
+          чисел більших за 100: ${moreNum}<br>
+          `
+
+        }
+
+        // 1 вводимо дані  
+        let num1, num2, num3
+        for (let i = 1; i <= 3; i++) {
+          let userNum = parseFloat(prompt(`Введіть число ${i}`))
+
+          if (i === 1) num1 = userNum
+          else if (i === 2) num2 = userNum
+          else if (i === 3) num3 = userNum
+
+        }
+
+        // 3 Виводимо результат   
+        let resultNum = getResultNum(num1, num2, num3)
+
+        document.write(`введені числа: <br> ${num1} <br> ${num2} <br> ${num3} <br>
+        Повернення значень функції <br> ${resultNum}
+        `)
+      }
+    </script>
+  </div>
+</body>
+
+</html>

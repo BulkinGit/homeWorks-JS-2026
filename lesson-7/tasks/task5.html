@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="block">
+    <h2>Задача 5</h2>
+    <p>
+      Створити окремі функції, які переводять: <br>
+      Сантиметри у дюйми; <br>
+      Кілограми у фунти; <br>
+      Кілометри у милі. <br>
+
+    </p>
+    <script>
+      if (confirm('Почати тестування?')) {
+
+        const getCm = (cm) => cm * 0.3937;
+        const getKg = (kg) => kg * 2.20462;
+        const getKm = (km) => km * 0.621371192;
+
+        // 1 вводимо дані  
+        let conversionCm = parseFloat(prompt("введіть кількість сантиметрів", " "));
+        let conversionKg = parseFloat(prompt("введіть кількість кілограмів", " "));
+        let conversionKm = parseFloat(prompt("введіть кількість кілометрів", " "));
+
+        let valueGetCm = getCm(conversionCm).toFixed(2);
+        let valueGetLb = getKg(conversionKg).toFixed(2);
+        let valueGetKm = getKm(conversionKm).toFixed(2);
+
+
+        // 3 Виводимо результат   
+        document.write(`${conversionCm}cm = ${valueGetCm}"
+              <hr>`);
+        document.write(`${conversionKg}kg = ${valueGetLb} lb
+              <hr>`);
+        document.write(`${conversionKm}km = ${valueGetKm} mi
+              <hr>`);
+
+      }
+    </script>
+  </div>
+</body>
+
+</html>

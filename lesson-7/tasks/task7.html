@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="block">
+    <h2>Задача 7</h2>
+    <p>
+      Створити функцію, яка випадковим чином виводить на екран одне із 4 зображень (шляхи до зображень передаються у
+      функцію)
+
+    </p>
+    <script>
+      if (confirm('Почати тестування?')) {
+
+        function getRandPicture(img1, img2, img3, img4) {
+
+          const randNum = 1 + Math.floor(Math.random() * 4)
+
+          let imgNum = ''
+          switch (randNum) {
+            case 1:
+              // document.write(` <img src="${img1}" style="height:100px" /> `)
+              imgNum = img1
+              break;
+            case 2:
+              // document.write(` <img src="${img2}" style="height:100px" /> `)
+              imgNum = img2
+              break;
+            case 3:
+              // document.write(` <img src="${img3}" style="height:100px" /> `)
+              imgNum = img3
+              break;
+            case 4:
+              imgNum = img4
+              break;
+          }
+          document.write(` <img src="${imgNum}" style="height:100px" /> `)
+        }
+        // 1 вводимо дані   
+
+        let img1 = '../img/1.png'
+        let img2 = '../img/2.png'
+        let img3 = '../img/3.png'
+        let img4 = '../img/4.png'
+        // 3 Виводимо результат   
+
+
+        //--- визначення чи є виграш
+        getRandPicture(img1, img2, img3, img4)
+      }
+    </script>
+  </div>
+</body>
+
+</html>

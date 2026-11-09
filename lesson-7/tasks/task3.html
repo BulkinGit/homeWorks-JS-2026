@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="block">
+    <h2>Задача 3</h2>
+    <p>
+      Створити окремі функції, які для 4 чисел знаходять: <br>
+      1.суму; <br>
+      2.добуток; <br>
+      3.середнє арифметичне; <br>
+      4.мінімальне значення. <br>
+    </p>
+    <script>
+      if (confirm('Почати тестування?')) {
+
+        function getSumNum(num1, num2, num3, num4) {
+          return num1 + num2 + num3 + num4
+        }
+
+        function getProdNum(num1, num2, num3, num4) {
+          return num1 * num2 * num3 * num4
+        }
+
+        function getMediumNum(num1, num2, num3, num4) {
+          return (num1 * num2 * num3 * num4) / 4
+        }
+
+        function getMinNum(num1, num2, num3, num4) {
+          let min = num1
+          if (num2 < min) min = num2
+          if (num3 < min) min = num3
+          if (num4 < min) min = num4
+
+          return min
+        }
+
+
+        // 1 вводимо дані  
+        let num1, num2, num3, num4 = 0
+        for (let i = 1; i <= 4; i++) {
+          let userNum = parseFloat(prompt(` Введіть довільне число ${i}-й раз`))
+          if (i === 1) num1 = userNum
+          else if (i === 2) num2 = userNum
+          else if (i === 3) num3 = userNum
+          else if (i === 4) num4 = userNum
+        }
+
+
+        // 3 Виводимо результат  
+        let resultSum = getSumNum(num1, num2, num3, num4)
+        let resultProd = getProdNum(num1, num2, num3, num4)
+        let resultMedium = getMediumNum(num1, num2, num3, num4)
+        let resultMin = getMinNum(num1, num2, num3, num4)
+
+        document.write(`сума чисел: ${resultSum} <br>`)
+        document.write(`Добуток чисел ${resultProd} <br>`)
+        document.write(`Середнє ${resultMedium} <br>`)
+        document.write(`Мінімальне ${resultMin} <br>`)
+      }
+    </script>
+  </div>
+</body>
+
+</html>

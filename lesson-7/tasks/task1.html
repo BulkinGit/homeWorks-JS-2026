@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="block">
+    <h2>Задача 1</h2>
+    <p>
+      Створити функцію, яка за номером місяця повертає його назву.
+    </p>
+    <script>
+      if (confirm('Почати тестування?')) {
+
+        // 1 вводимо дані  
+        function getNumMonth(monthNum) {
+          let nameMonth = ''
+          switch (monthNum) {
+            case 1:
+              nameMonth = 'January'
+              break;
+            case 2:
+              nameMonth = 'February'
+              break;
+            case 3:
+              nameMonth = 'March'
+              break;
+            case 4:
+              nameMonth = 'April'
+              break;
+            case 5:
+              nameMonth = 'May'
+              break;
+            case 6:
+              nameMonth = 'June'
+              break;
+            case 7:
+              nameMonth = 'July'
+              break;
+            case 8:
+              nameMonth = 'August'
+              break;
+            case 9:
+              nameMonth = 'September'
+              break;
+            case 10:
+              nameMonth = 'October'
+              break;
+            case 11:
+              nameMonth = 'November'
+              break;
+            case 12:
+              nameMonth = 'December'
+              break;
+            default:
+              nameMonth = 'введене число не відповідає заданим параметрам'
+              break;
+          }
+          return nameMonth
+        }
+        const numMonth = parseInt(prompt('Введіть місяць року числом від 1 до 12'))
+        // 3 Виводимо результат  
+        let monthName = getNumMonth(numMonth)
+
+        document.write(`${monthName}`)
+      }
+    </script>
+  </div>
+</body>
+
+</html>

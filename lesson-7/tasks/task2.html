@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="block">
+    <h2>Задача 2</h2>
+    <p>
+      Створити функцію, яка за номером дня дозволяє з’ясувати чи є цей день робочим.
+    </p>
+    <script>
+      if (confirm('Почати тестування?')) {
+
+        // 1 вводимо дані  
+        function getNumDay(dayNum) {
+          if (dayNum < 1 || dayNum > 7) return 'введено некоректний номер дня тижня'
+          if (dayNum <= 5) return 'введено робочий номер дня тижня'
+          else return 'введено вихідний номер дня тижня'
+        }
+        const dayNum = parseInt(prompt('Введіть день тижня числом від 1 до 7'))
+        // 3 Виводимо результат  
+        let dayStatus = getNumDay(dayNum)
+
+        document.write(`${dayStatus}`)
+      }
+    </script>
+  </div>
+</body>
+
+</html>
