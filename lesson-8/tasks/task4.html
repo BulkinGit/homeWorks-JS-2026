@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="block">
+    <h2>Задача 4</h2>
+    <p>
+      Дано послідовність цін товарів та назв (у окремих масивах). <br>
+      Вивести на екран ті, які може собі дозволити
+      користувач (кількість грошей задається).
+    </p>
+    <script>
+      if (confirm('Почати тестування?')) {
+
+        function getShopMagazine(arrPrice, arrTitle, money) {
+          let shopping = ''
+          let i = 0
+
+          while (i < arrPrice.length) {
+            if (money >= arrPrice[i]) {
+
+              shopping += `${arrTitle[i]}<br>`
+              money -= arrPrice[i]
+
+            }
+            i++
+          }
+          return `${shopping}<br>Залишок на рахунку: ${money} грн`
+        }
+
+        // 1 вводимо дані  
+        let productsPrices = [1000, 20, 31]
+        let productsTitles = ['cheese', 'juice', 'bread']
+        let moneyUser = parseInt(prompt('Скільки коштів ви маєте на рахунку? ', 10))
+
+
+        // 3 Виводимо результат    
+        let shopMagazine = getShopMagazine(productsPrices, productsTitles, moneyUser)
+        document.write(`
+ваші покупки:<br> ${shopMagazine}
+        `)
+      }
+    </script>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="block">
+    <h2>Задача 1</h2>
+    <p>
+      Дано масив, який зберігає кількість відвідувачів магазину протягом тижня. Вивести на екран: <br>
+      ● номери днів, протягом яких кількість відвідувачів була меншою за 20; <br>
+      ● номери днів, коли кількість відвідувачів була мінімальною; <br>
+      ● номери днів, коли кількість відвідувачів була максимальною; <br>
+      ● загальну кількість клієнтів у робочі дні та окремо загальну кількість днів на вихідних. <br>
+    </p>
+    <script>
+      if (confirm('Почати тестування?')) {
+
+        // 1 вводимо дані  
+        function markArray(day) {
+          const arr = []
+          for (let i = 0; i < day; i++) {
+            const el = parseInt(prompt(`Введіть кількість відвідувачів: \nДень: ${i + 1}`, 21))
+            arr.push(el)
+          }
+          return arr
+        }
+
+
+        function getMinTwenty(arr) {
+          let min = []
+          for (let i = 0; i < arr.length; i++) {
+            if (arr[i] < 20) min.push(i + 1)
+          }
+          return min
+        }
+
+        function getWorkDays(arr) {
+          let sumVisite = 0
+          for (let i = 0; i < 5; i++) {
+            sumVisite += arr[i]
+          }
+          return sumVisite
+        }
+
+        function getWeekendDays(arr) {
+          let sumVisite = 0
+          for (let i = 5; i < arr.length; i++) {
+            sumVisite += arr[i]
+          }
+          return sumVisite
+        }
+
+        function getMinVisite(arr) {
+          let min = arr[0]
+          let minVisite = []
+          for (let i = 0; i < arr.length; i++) {
+            if (min > arr[i]) min = arr[i]
+          }
+          for (let i = 0; i < arr.length; i++) {
+            if (arr[i] === min) minVisite.push(i + 1)
+          }
+          return minVisite
+        }
+
+
+        function getMaxVisite(arr) {
+          let max = arr[0]
+          let maxVisite = []
+          for (let i = 0; i < arr.length; i++) {
+            if (max < arr[i]) max = arr[i]
+          }
+          for (let i = 0; i < arr.length; i++) {
+            if (arr[i] === max) maxVisite.push(i + 1)
+          }
+          return maxVisite
+        }
+
+
+
+        let income = markArray(7)
+        // 3 Виводимо результат   
+        let minVisiteTwenty = getMinTwenty(income)
+        let visiteWorkDays = getWorkDays(income)
+        let visiteWeekendDays = getWeekendDays(income)
+        let visiteMin = getMinVisite(income)
+        let visiteMax = getMaxVisite(income)
+
+        document.write(` 
+Відвідувачів меньше за 20: ${minVisiteTwenty}<br>
+Відвідувачів за будні дні: ${visiteWorkDays}<br>
+Відвідувачів за вихідні дні: ${visiteWeekendDays}<br>
+Дні коли мінімальна кількість відвідувачів: ${visiteMin}<br>
+Дні коли максимальна кількість відвідувачів: ${visiteMax}<br>
+        `)
+
+        console.log(income)
+
+      }
+    </script>
+  </div>
+</body>
+
+</html>

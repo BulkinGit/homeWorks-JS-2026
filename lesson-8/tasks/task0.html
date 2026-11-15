@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="block">
+    <h2>Задача 0</h2>
+    <p>
+      Дано масив, який містить оцінки з К предметів. <br>
+      Знайти середній бал і з’ясувати до якої категорії він відноситься
+      (відмінник, двійочник (має хоча би одну двійку),
+      хорошист (оцінки добре і відмінно), трійочник(є хоча би одна трійка)).
+    </p>
+    <script>
+      if (confirm('Почати тестування?')) {
+
+        // 1 вводимо дані  
+        function markArray(userLength, prefixMessage) {
+          const arr = []
+          for (let i = 0; i < userLength; i++) {
+            const el = parseFloat(prompt(`${prefixMessage} ${i + 1}`))
+            arr.push(el)
+          }
+          return arr
+        }
+
+        let numberSubjects = parseInt(prompt('Введіть кількість предметів', 3))
+        let income = markArray(numberSubjects, 'Введіть оцінки з предметів')
+        let markSum = 0
+        let status = ''
+        let minMark = income[0]
+
+        // 2 знаходимо результат
+
+        for (let i = 0; i < income.length; i++) {
+          markSum += income[i]
+          if (income[i] < minMark) minMark = income[i]
+        }
+
+        if (minMark === 2) status = 'двійочник'
+        else if (minMark === 3) status = 'трійочник'
+        else if (minMark === 4) status = 'хорошист'
+        else if (minMark === 5) status = 'відмінник'
+        else status = 'введені числа не відповідають оцінкам'
+
+        let average = (markSum / numberSubjects).toFixed(2)
+
+        // 3 Виводимо результат   
+        document.write(`
+        обраних предметів для оцінки: ${ numberSubjects}<br>
+        введені оцінки: ${income} <br>
+        загальна сума оцінок: ${markSum} <br>
+        серееднє значення оцінок: ${average} <br>
+        учень: ${status} <br>
+        `)
+
+        console.log(income)
+
+      }
+    </script>
+  </div>
+</body>
+
+</html>

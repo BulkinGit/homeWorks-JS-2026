@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="block">
+    <h2>Задача 3</h2>
+    <p>
+      Дано послідовність номерів автомобілів. <br> Підрахувати кількість номерів, які: <br>
+      • починаються на букву «А»; <br>
+      • перша і остання літери співпадають; <br>
+      • складаються з більше ніш 5 символів; <br>
+    </p>
+    <script>
+      if (confirm('Почати тестування?')) {
+
+
+        function getStartedLetter(arr) {
+          let numbersCount = 0
+
+          for (let i = 0; i < arr.length; i++) {
+            if (arr[i][0].toUpperCase() === 'А') {
+              numbersCount++
+            }
+          }
+          return numbersCount
+        }
+
+
+        function getDoubleLetter(arr) {
+          let numbersCount = 0
+
+          for (let i = 0; i < arr.length; i++) {
+            let firstLetter = arr[i][0]
+            let lastLetter = arr[i][arr[i].length - 1]
+
+
+            if (firstLetter.toUpperCase() === lastLetter.toUpperCase()) {
+              numbersCount++
+            }
+          }
+          return numbersCount
+        }
+
+
+        function getNumberLength(arr) {
+          let numbersCount = 0
+
+          for (let i = 0; i < arr.length; i++) {
+
+            if (arr[i].length > 5) {
+              numbersCount++
+            }
+          }
+          return numbersCount
+        }
+
+
+        // 1 вводимо дані  
+        const carNumbers = ["АА2332АА", "ВС1205СА", "К-23", "СВ9432КА", "АХ1205СВ", "КА1205СК", "аА-120", "05СК"]
+
+        // 3 Виводимо результат    
+        let startedLetter = getStartedLetter(carNumbers)
+        let doubleLetter = getDoubleLetter(carNumbers)
+        let numberLength = getNumberLength(carNumbers)
+        document.write(`
+кількість номерів, які починаються на "А":  ${startedLetter}<br>
+кількість номерів в яких співпалають перша та остання літери: ${doubleLetter}<br>
+кількість номерів які складаються з більше ніш 5 символів: ${numberLength}<br>
+        `)
+
+        console.log(carNumbers)
+
+      }
+    </script>
+  </div>
+</body>
+
+</html>
