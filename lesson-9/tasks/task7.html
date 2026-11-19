@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="block">
+    <h2>Задача 7</h2>
+    <p>
+      Дано масив номерів авто. Сформувати новий масив тих, які починаються на «А»
+    </p>
+    <script>
+      if (confirm('Почати тестування?')) {
+
+        // 1 вводимо дані
+        const carNumbers = ["АА2332АА", "ВС1205СА", "К-23", "СВ9432КА", "АХ1205СВ", "КА1205СК", "аА-120", "05СК"]
+        // 3 Виводимо результат
+        let numbersFilter = carNumbers.filter((item) => item[0] === 'А')
+
+
+        document.write(`
+        ${numbersFilter}
+                `)
+
+        console.log(carNumbers)
+        console.log(numbersFilter)
+
+      }
+    </script>
+  </div>
+</body>
+
+</html>

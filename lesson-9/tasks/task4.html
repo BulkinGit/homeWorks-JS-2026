@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="block">
+    <h2>Задача 4</h2>
+    <p>
+      Дано масив елементів. Знайти добуток додатних елементів
+    </p>
+    <script>
+      if (confirm('Почати тестування?')) {
+
+        // 1 вводимо дані
+        let userNum = parseInt(prompt('введіть число:', 5))
+        let productNum = 1
+        let arrNumbers = Array.from({
+          length: userNum
+        }, () => -100 + Math.floor(Math.random() * (201)))
+        // 3 Виводимо результат
+
+        for (const el of arrNumbers) {
+          if (el > 0) productNum *= el
+        }
+
+        document.write(`
+${productNum}<br>
+        `)
+
+        console.log(arrNumbers)
+      }
+    </script>
+  </div>
+</body>
+
+</html>

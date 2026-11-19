@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="block">
+    <h2>Задача 5</h2>
+    <p>
+      Дано масив елементів. Усі елементи, які більші за перший елемент помножити на 2
+    </p>
+    <script>
+      if (confirm('Почати тестування?')) {
+
+        // 1 вводимо дані
+        let userNum = parseInt(prompt('введіть число:', 5))
+        let arrNumbers = Array.from({
+          length: userNum
+        }, () => 10 + Math.floor(Math.random() * (41)))
+        // 3 Виводимо результат
+
+        arrNumbers.forEach((item, index, arr) => {
+          if (item > arr[0]) arr[index] *= 2
+        })
+
+
+        document.write(`
+${arrNumbers}<br>
+        `)
+
+        console.log(arrNumbers)
+
+
+      }
+    </script>
+  </div>
+</body>
+
+</html>

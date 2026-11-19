@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="block">
+    <h2>Задача 6</h2>
+    <p>
+      Дано масив цін. Змінити цей масив так, що на ціни товарів, які більші за 1000 грн. дати 30% знижки.
+    </p>
+    <script>
+      if (confirm('Почати тестування?')) {
+
+        // 1 вводимо дані
+        let productPrice = [100, 350, 20, 1110, 1340, 900, 1800]
+        // 3 Виводимо результат
+
+        productPrice.forEach((item, index, arr) => {
+          if (item > 1000) arr[index] *= 0.7
+        })
+
+        document.write(`
+${productPrice}<br>
+        `)
+
+        console.log(productPrice)
+
+
+      }
+    </script>
+  </div>
+</body>
+
+</html>
