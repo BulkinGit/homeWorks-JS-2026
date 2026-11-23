@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="block">
+    <h2>Задача 0</h2>
+    <p>
+      Задача. Дано історію цін на цінні папери за деякий період (згенерувати від 1 до 10000) <br>
+      1)Сформувати новий масив, у якому є тільки ті, що більші за 1000 грн. <br>
+      2)Сформувати новий масив, у якому є номери тільки тих, що більші за 1000 грн. <br>
+      3)Сформувати список з тих цін, які більші за попереднє значення <br>
+      4)Сформувати новий масив, що міститиме значення цін у відсотках стосовно максимального <br>
+      5)Підрахувати кількість змін цін <br>
+      6)Визначити, чи є ціна, що менше 1000 <br>
+      7)Визначати, чи усі ціни більше за 1000 <br>
+      8)Підрахувати кількість цін, що більше за 1000 <br>
+      9)Підрахувати суму цін, що більше за 1000 <br>
+      10)Знайти першу ціну, що більше за 1000 <br>
+      11)Знайти індекс першої ціни, що більше за 1000 <br>
+      12)Знайти останню ціну, що більше за 1000 <br>
+      13)Знайти індекс останньої ціни, що більше за 1000 <br>
+    </p>
+    <script>
+      if (confirm('Почати тестування?')) {
+
+        // 1 вводимо дані  
+        let moneyNum = parseInt(prompt('введіть період цін:', 10))
+        let arrNumbers = Array.from({
+          length: moneyNum
+        }, () => 1 + Math.floor(Math.random() * 1000))
+
+        //  1)Сформувати новий масив, у якому є тільки ті, що більші за 1000 грн. <br>
+        let maxThousand = arrNumbers.filter(price => price > 1000).join(' ')
+
+        // Сформувати новий масив, у якому є номери тільки тих, що більші за 1000 грн. <br>
+        let maxThousandIndex = []
+        arrNumbers.forEach((price, index, arrPrice) => {
+          if (price > 1000) maxThousandIndex.push(index)
+        })
+
+        // Сформувати список з тих цін, які більші за попереднє значення <br>
+        let priceMaxPrev = arrNumbers.filter((price, index, arr) => price > arr[index - 1])
+
+        // Сформувати новий масив, що міститиме значення цін у відсотках стосовно максимального
+
+        // Підрахувати кількість змін цін <br>
+        let notRepeat = arrNumbers.reduce((acc, el, index, arr) => (index > 0 && el !== arr[index - 1] ? acc + 1 : acc),
+          0)
+
+        // Визначити, чи є ціна, що менше 1000 <br>
+        if (arrNumbers.some((el) => el < 1000)) document.write(`дана вибірка містить ціну нижчу за 1000<br>`)
+        else document.write(`дана вибірка не містить ціну нижчу за 1000<br>`)
+
+        // Визначати, чи усі ціни більше за 1000 <br>
+        if (arrNumbers.every((el) => el > 1000)) document.write(`дана вибірка містить всі ціну більші за 1000<br>`)
+        else document.write(`дана вибірка містить не всі ціни більші за 1000<br>`)
+
+        // Підрахувати кількість цін, що більше за 1000 <br>
+        let countThousand = arrNumbers.reduce((acc, el) => (el > 1000 ? acc + 1 : acc), 0)
+
+        // Підрахувати суму цін, що більше за 1000 <br>
+        let sumThousand = arrNumbers.reduce((acc, el) => (el > 1000 ? acc + el : acc), 0)
+
+        // Знайти першу ціну, що більше за 1000 <br>
+        let firsThousand = arrNumbers.find(price => price > 1000)
+
+        // Знайти індекс першої ціни, що більше за 1000 <br>
+        let firsThousandIndex = arrNumbers.findIndex(price => price > 1000)
+
+        // Знайти останню ціну, що більше за 1000 <br>
+        let lastThousand = arrNumbers.findLast(price => price > 1000)
+
+        // Знайти індекс останньої ціни, що більше за 1000 <br>
+        let lastThousandIndex = arrNumbers.findLastIndex(price => price > 1000)
+
+
+        // 3 Виводимо результат   
+        document.write(`
+        цніи білиші за 1000: ${maxThousand}<br>
+        індекси цні білиші за 1000: ${maxThousandIndex}<br>
+        цні білиші за попередні: ${priceMaxPrev}<br>
+        перша ціна вибірки, що більша за 1000: ${firsThousand}<br>
+        перший індекс ціни вибірки, що більша за 1000: ${firsThousandIndex}<br>
+        остання ціна вибірки, що більша за 1000: ${lastThousand}<br>
+        останній індекс ціни вибірки, що більша за 1000: ${lastThousandIndex}<br>
+        кількість цін вибірки, що більша за 1000: ${countThousand}<br>
+        загальна сума цін вибірки, що більша за 1000: ${sumThousand}<br>
+        кількість змін цін вибірки: ${notRepeat}<br>
+        
+        `)
+
+        console.log(arrNumbers)
+        console.log(priceMaxPrev)
+        console.log(maxThousandIndex)
+
+      }
+    </script>
+  </div>
+</body>
+
+</html>
