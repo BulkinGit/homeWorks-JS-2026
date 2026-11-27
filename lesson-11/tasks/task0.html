@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="block">
+    <h2>Задача 0</h2>
+    <p>
+      Знайти суми елементів у вказаній області (зафарбована область охоплює відповідну половину рядків і стовпців)
+      <br>
+      1) номери рядків від 0 до половини, стовпці від 0 до половини <br>
+      2) номери рядків від 0 до половини, стовпці від половини до кінця <br>
+      3)номери рядків від половини до кінця, стовпці від 0 до половини <br>
+      4) номери рядків від половини до кінця , стовпці від половини до кінця <br>
+      5) Суму парних рядків <br>
+      6) Суму непарних стовпців <br>
+      7) У парних рядках – непарні стовпці, у непарних – парні. <br>
+    </p>
+    <script>
+      if (confirm('Почати тестування?')) {
+        // 1 генерування двовимірного масиву
+        function getRandomNum(minValue, maxValue) {
+          return minValue + Math.floor(Math.random() * (maxValue - minValue + 1))
+        }
+
+        function getTable(arrRow, arrCol, minValue, maxValue) {
+          return Array.from({
+              length: arrRow
+            }, () =>
+            Array.from({
+              length: arrCol
+            }, () => getRandomNum(minValue, maxValue)))
+        }
+        // 2 вводимо дані  
+        // const rowNum = parseInt(prompt('введіть число, що створює кількість рядків', 6))
+        // const colNum = parseInt(prompt('введіть число, що створює кількість колонок', 6))
+        // const minNum = parseInt(prompt('введіть мінімальне число', 1))
+        // const maxNum = parseInt(prompt('введіть максимальне число', 100))
+
+        // let randTable = getTable(rowNum, colNum, minNum, maxNum)
+        let randTable = getTable(4, 4, 1, 3)
+
+
+        const halfRow = Math.floor(randTable.length / 2)
+        const halfCol = Math.floor(randTable[0].length / 2)
+
+        let sum = 0
+        let sum1 = 0
+        let sum2 = 0
+        let sum3 = 0
+        let sum4 = 0
+        let sum5 = 0
+        let sum6 = 0
+        let sum7 = 0
+
+
+        // номери рядків від 0 до половини, стовпці від 0 до половини
+        for (let row = 0; row < halfRow; row++) {
+          for (let col = 0; col < halfCol; col++) {
+            sum += randTable[row][col]
+          }
+        }
+
+        //  номери рядків від 0 до половини, стовпці від половини до кінця
+        for (let row = 0; row < halfRow; row++) {
+          for (let col = halfCol; col < randTable[row].length; col++) {
+            sum1 += randTable[row][col]
+          }
+        }
+
+        // номери рядків від половини до кінця, стовпці від 0 до половини
+        for (let row = halfRow; row < randTable.length; row++) {
+          for (let col = 0; col < halfCol; col++) {
+            sum2 += randTable[row][col]
+          }
+        }
+        // номери рядків від половини до кінця , стовпці від половини до кінця
+        for (let row = halfRow; row < randTable.length; row++) {
+          for (let col = halfCol; col < randTable[row].length; col++) {
+            sum3 += randTable[row][col]
+          }
+        }
+        // Суму парних рядків
+        for (let row = 0; row < randTable.length; row += 2) {
+          for (let col = 0; col < randTable[row].length; col++) {
+            sum4 += randTable[row][col]
+          }
+        }
+
+        // Суму непарних стовпців
+        for (let row = 0; row < randTable.length; row++) {
+          for (let col = 1; col < randTable[row].length; col += 2) {
+            sum5 += randTable[row][col]
+          }
+        }
+        // У парних рядках – непарні стовпці, у непарних – парні.
+        for (let row = 0; row < randTable.length; row += 2) {
+          for (let col = 1; col < randTable[row].length; col += 2) {
+            sum6 += randTable[row][col]
+          }
+        }
+        for (let row = 1; row < randTable.length; row += 2) {
+          for (let col = 0; col < randTable[row].length; col += 2) {
+            sum7 += randTable[row][col]
+          }
+        }
+
+
+        // 3 Виводимо результат   
+        document.write(`сума чисел від 0 до половини рядків та від 0 до половини стовпців: ${sum}<br>`)
+        document.write(`сума чисел від 0 до половини рядків та від половини до кінця стовпців: ${sum1}<br>`)
+        document.write(`сума чисел від половини до кінця рядків та від 0 до половини стовпців: ${sum2}<br>`)
+        document.write(`сума чисел від половини до кінця рядків та від половини до кінця стовпців: ${sum3}<br>`)
+        document.write(`суму парних рядків: ${sum4}<br>`)
+        document.write(`суму непарних стовпців: ${sum5}<br>`)
+        document.write(`суму непарних стовпців: ${sum5}<br>`)
+        document.write(`У парних рядках – непарні стовпці: ${sum6} <br> у непарних – парні: ${sum7}<br>`)
+
+        console.log(randTable)
+
+      }
+    </script>
+  </div>
+</body>
+
+</html>
